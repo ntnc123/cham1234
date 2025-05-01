@@ -1,3 +1,8 @@
+#Thư viện
+#!pip install numpy==1.26.4
+# pip install nltk
+# pip install gensim
+# pip install scikit-learn
 import numpy as np
 # print(np.__version__)
 
@@ -51,17 +56,7 @@ def generate_summary(sentences, rep_indices):
     return ' '.join(summary)
 
 text = """
-Nội dung cốt lõi Tư tưởng Hồ Chí Minh
-Tư tưởng về giải phóng dân tộc, giải phóng giai cấp, giải phóng con người;
-Độc lập dân tộc gắn liền với chủ nghĩa xã hội; kết hợp sức mạnh dân tộc với sức mạnh thời đại;
-Sức mạnh của nhân dân, của khối đại đoàn kết dân tộc;
-Quyền làm chủ của nhân dân, xây dựng Nhà nước thật sự của dân, do dân và vì dân
-Quốc phòng toàn dân, xây dựng lực lượng vũ trang nhân dân;
-Về phát triển kinh tế, văn hóa, không ngừng nâng cao đời sống vật chất và tinh thần của nhân dân;
-Về phát triển kinh tế và văn hóa, không ngừng nâng cao đời sống vật chất và tinh thần của nhân dân;
-Đạo đức cách mạng, cần, kiệm, liêm, chính, chí công vô tư;
-Chăm lo bồi dưỡng thế hệ cách mạng cho đời sau;
-Xây dựng Đảng trong sạch, vững mạnh, cán bộ, Đảng viên vừa là lãnh đạo, vừa là người đầy tớ thật trung thành của nhân dân...
+Văn bản là một loại hình phương tiện để ghi nhận, lưu giữ và truyền đạt các thông tin từ chủ thể này sang chủ thể khác bằng ký hiệu gọi là chữ viết. Nó gồm tập hợp các câu có tính trọn vẹn về nội dung, hoàn chỉnh về hình thức, có tính liên kết chặt chẽ và hướng tới một mục tiêu giao tiếp nhất định. Hay nói khác đi, văn bản là một dạng sản phẩm của hoạt động giao tiếp bằng ngôn ngữ được thể hiện ở dạng viết trên một chất liệu nào đó (giấy, bia đá,...)
 """
 
 # Chạy từng bước
