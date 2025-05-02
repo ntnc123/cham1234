@@ -21,7 +21,7 @@ w2v = KeyedVectors.load_word2vec_format(r"D:\gitab\vi_txt\vi.vec")
 vocab = w2v.key_to_index  # Danh sách các từ trong từ điển
 from pyvi import ViTokenizer
 
-#Bước 4: Tính toán vector cho từng câu
+#Bước 5: Tính toán vector cho từng câu
 import numpy as np
 X = []
 for sentence in sentences:
@@ -33,13 +33,13 @@ for sentence in sentences:
             sentence_vec += w2v[word]  # Truy cập vector từ trực tiếp bằng w2v[word]
     X.append(sentence_vec)
 
-#Bước 5: Phân cụm câu băng KMeans
+#Bước 6: Phân cụm câu băng KMeans
 from sklearn.cluster import KMeans
 n_clusters = 5 #Sô lượng cụm (có thể thay đổi)
 kmeans = KMeans(n_clusters=n_clusters)
 kmeans = kmeans.fit(X)
 
-#Bước 6: Tìm câu đại diện cho từng cụm
+#Bước 7: Tìm câu đại diện cho từng cụm
 from sklearn.metrics import pairwise_distances_argmin_min
 
 avg = []
@@ -50,5 +50,5 @@ closest, _ = pairwise_distances_argmin_min(kmeans.cluster_centers_, X)
 ordering = sorted(range(n_clusters), key=lambda k: avg[k])
 summary = ' '.join([sentences[closest[idx]] for idx in ordering])
 
-#Bước 7: In ra kết quả
+#Bước 8: In ra kết quả
 print(summary)
