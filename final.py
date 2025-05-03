@@ -1,13 +1,6 @@
 #Bước 1: Gán văn bản cần tóm tắt vào biến content
 content = '''
-Overfitting là hiện tượng mô hình tìm được quá khớp
-với dữ liệu training. Việc quá khớp này có thể dẫn đến
-việc dự đoán nhầm nhiễu, và chất lượng mô hình không
-còn tốt trên dữ liệu test nữa. Dữ liệu test được giả sử là
-không được biết trước, và không được sử dụng để xây
-dựng các mô hình Machine Learning. Vấn đề quá vừa
-dữ liệu trong học máy ảnh hưởng đến độ chính xác của
-các kỹ thuật học máy.
+Tối nào cũng vậy, cứ đến lúc con bé lớn ông Hai thu que đóm cháy lập lòe trong chiếc nón rách tất tả đi từ nhà bếp lên, và bà Hai ngồi ngây thuỗn cái mặt trước đĩa đèn dầu lạc, lầm bầm tính toán những tiền cua, tiền bún, tiền chuối, tiền kẹo… thì ông Hai vùng dậy, sang bên bác Thứ nói chuyện. Không hiểu sao cứ đến lúc ấy ông Hai lại thấy buồn. Nằm nghe tiếng súng dội trong đêm tối và nhất là cái tiếng rì rầm tính toán tiền nong của mụ vợ, tự nhiên ông sinh ra nghĩ ngợi vẩn vơ, nó bực dọc làm sao ấy. Mà ông, thì không thích nghĩ ngợi như thế một tí nào. ông vốn là người hay làm, ở quê ông làm suốt ngày, không mấy lúc chịu ngơi chân ngơi tay. Không đi cày đi cuốc, không gánh phân tát nước thì ông cũng phải bày vẽ ra công việc gì để làm: đan rổ, đan rá hay chữa cái chuồng gà, cạp lại tấm liếp. Từ ngày tản cư lên đây, suốt ngày mấy bố con nhong nhóng ngồi ăn, tối đến lại nghe những tiếng rì rầm tính toán ấy, ruột gan ông cứ nóng lên như lửa đốt. Ông phải đi chơi cho khuây khỏa. Lần nào cũng như lần nào, cứ vừa nhô đầu qua cái mái lá bên gian bác Thứ là ông lão hỏi ngay: “Thế nào, hôm nay có gì không bác?”...
 '''
 
 #Bước 2: Tiền xử lý văn bản
