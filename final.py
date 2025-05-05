@@ -6,13 +6,15 @@ Tối nào cũng vậy, cứ đến lúc con bé lớn ông Hai thu que đóm ch
 contents_parsed = content.lower() #Biến đổi hết thành chữ thường
 contents_parsed = contents_parsed.replace('\n', '. ') #Đổi các ký tự xuống dòng thành chấm câu
 contents_parsed = contents_parsed.strip() #Loại bỏ đi các khoảng trắng thừa
-# print("Nội dung sau khi tiền xử lý:\n",contents_parsed) #In ra nội dung sau khi tiền xử lý
+#In ra nội dung sau khi tiền xử lý
+# print("Nội dung sau khi tiền xử lý:\n",contents_parsed) 
 
 #Bước 2: Tách câu trong văn bản
 import nltk
 nltk.download('punkt_tab')
 sentences = nltk.sent_tokenize(contents_parsed)
-# print("Danh sách câu:\n",sentences) #In ra danh sách các câu đã tách
+#In ra danh sách các câu đã tách
+# print("Danh sách câu:\n",sentences) 
 
 #Bước 3: Tách từ trong câu và tính toán vector cho từng câu
 from gensim.models import KeyedVectors
