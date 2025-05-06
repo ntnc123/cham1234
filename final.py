@@ -1,3 +1,11 @@
+#THƯ VIỆN
+#pip install nltk
+# pip install gensim
+# pip install sklearn
+# pip install pyvi
+# pip install fasttext
+# pip install numpy==1.26.4
+
 content = '''Nội dung cốt lõi Tư tưởng Hồ Chí Minh
 Tư tưởng về giải phóng dân tộc, giải phóng giai cấp, giải phóng con người;
 Độc lập dân tộc gắn liền với chủ nghĩa xã hội; kết hợp sức mạnh dân tộc với sức mạnh thời đại;
