@@ -19,12 +19,14 @@ contents_parsed = contents_parsed.strip() #Loại bỏ đi các khoảng trắng
 #In ra nội dung sau khi tiền xử lý
 # print("Nội dung sau khi tiền xử lý:\n",contents_parsed) 
 
+
 #Bước 2: Tách câu trong văn bản
 import nltk
 nltk.download('punkt_tab')
 sentences = nltk.sent_tokenize(contents_parsed)
 #In ra danh sách các câu đã tách
 # print("Danh sách câu:\n",sentences) 
+
 
 #Bước 3: Tách từ trong câu và tính toán vector cho từng câu
 from gensim.models import KeyedVectors
@@ -43,11 +45,16 @@ for sentence in sentences:
             sentence_vec += w2v[word]  # Truy cập vector từ trực tiếp bằng w2v[word]
     X.append(sentence_vec)
 
-#Bước 4: Phân cụm câu băng KMeans
+
+#Bước 4: Phân cụm câu bằng KMeans
 from sklearn.cluster import KMeans
 n_clusters = 3 #Sô lượng cụm (có thể thay đổi)
 kmeans = KMeans(n_clusters=n_clusters)
 kmeans = kmeans.fit(X)
+
+#In ra nhãn của từng câu
+print("Label vector:", kmeans.labels_)
+
 
 #Bước 5: Tìm câu đại diện cho từng cụm
 from sklearn.metrics import pairwise_distances_argmin_min
@@ -59,6 +66,7 @@ for j in range(n_clusters):
 closest, _ = pairwise_distances_argmin_min(kmeans.cluster_centers_, X)
 ordering = sorted(range(n_clusters), key=lambda k: avg[k])
 summary = ' '.join([sentences[closest[idx]] for idx in ordering])
+
 
 #Bước 6: In ra kết quả
 print("\nTóm Tắt:\n",summary)
