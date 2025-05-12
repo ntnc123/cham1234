@@ -10,11 +10,14 @@ import io
 
 app = FastAPI()
 
-# Tải trước mô hình word2vec
 w2v = KeyedVectors.load_word2vec_format(r"D:\gitab\vi_txt\vi.vec", binary=False)
 vocab = w2v.key_to_index
 
-nltk.download('punkt')
+import nltk
+try:
+    nltk.data.find('tokenizers/punkt')
+except LookupError:
+    nltk.download('punkt')
 
 @app.post("/summarize_docx")
 async def summarize_docx(file: UploadFile = File(...), n_clusters: int = 5):
