@@ -1,7 +1,8 @@
 from typing import Union
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 
 app = FastAPI()
+
 @app.get("/")
 def read_root():
     return {"Hello": "World"}
@@ -9,7 +10,8 @@ def read_root():
 @app.get("/items/{item_id}")
 def read_item(item_id: int, q: Union[str, None] = None):
     return {item_id: item_id, "q":q}
-from fastapi import FastAPI, Request
+
+
 from pydantic import BaseModel
 from gensim.models import KeyedVectors
 from pyvi import ViTokenizer
@@ -18,16 +20,18 @@ from sklearn.metrics import pairwise_distances_argmin_min
 import numpy as np
 import nltk
 
-# Tải trước mô hình word2vec
 w2v = KeyedVectors.load_word2vec_format(r"D:\gitab\vi_txt\vi.vec", binary=False)
 vocab = w2v.key_to_index
 
-# Tải bộ tách câu NLTK
-nltk.download('punkt')
+try:
+    nltk.data.find('tokenizers/punkt')
+except LookupError:
+    nltk.download('punkt')
 
-class TextRequest(BaseModel):
+
+class TextRequest(BaseModel): 
     content: str
-    n_clusters: int = 5  # Số cụm mặc định
+    n_clusters: int = 5
 
 @app.post("/summarize")
 async def summarize_text(request: TextRequest):
@@ -38,7 +42,7 @@ async def summarize_text(request: TextRequest):
     for sentence in sentences:
         sentence_tokenized = ViTokenizer.tokenize(sentence)
         words = sentence_tokenized.split(" ")
-        sentence_vec = np.zeros((100))  # Giả sử vector size = 100
+        sentence_vec = np.zeros((100))
         for word in words:
             if word in vocab:
                 sentence_vec += w2v[word]
