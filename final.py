@@ -1,7 +1,7 @@
 #THƯ VIỆN
 # pip install nltk
 # pip install gensim 
-# pip install sklearn 
+# pip install scikit-learn 
 # pip install pyvi 
 # pip install numpy==1.26.4 
 
@@ -37,6 +37,7 @@ try:
     nltk.data.find('tokenizers/punkt')
 except LookupError:
     nltk.download('punkt')
+
 sentences = nltk.sent_tokenize(contents_parsed)
 #In ra danh sách các câu đã tách
 # print("Danh sách câu:\n",sentences) 
