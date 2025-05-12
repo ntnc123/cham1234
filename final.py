@@ -1,37 +1,42 @@
 #THƯ VIỆN
-# pip install nltk #Sử dụng để tách câu
-# pip install gensim #Sử dụng để tách từ tiếng Việt
-# pip install sklearn #Phân cụm câu và chọn câu đại diện
-# pip install pyvi #Tải mô hình Word2Vec và truy xuất vector từ
-# pip install numpy==1.26.4 #Tính toán trung bình vector câu
+# pip install nltk
+# pip install gensim 
+# pip install sklearn 
+# pip install pyvi 
+# pip install numpy==1.26.4 
 
 content = '''
-Tối nào cũng vậy, cứ đến lúc con bé lớn ông Hai thu que đóm cháy lập lòe trong chiếc nón rách tất tả đi từ nhà bếp lên, và bà Hai ngồi ngây thuỗn cái mặt trước đĩa đèn dầu lạc, lầm bầm tính toán những tiền cua, tiền bún, tiền chuối, tiền kẹo… thì ông Hai vùng dậy, sang bên bác Thứ nói chuyện. Không hiểu sao cứ đến lúc ấy ông Hai lại thấy buồn. Nằm nghe tiếng súng dội trong đêm tối và nhất là cái tiếng rì rầm tính toán tiền nong của mụ vợ, tự nhiên ông sinh ra nghĩ ngợi vẩn vơ, nó bực dọc làm sao ấy. Mà ông, thì không thích nghĩ ngợi như thế một tí nào. Ông vốn là người hay làm, ở quê ông làm suốt ngày, không mấy lúc chịu ngơi chân ngơi tay. Không đi cày đi cuốc, không gánh phân tát nước thì ông cũng phải bày vẽ ra công việc gì để làm: đan rổ, đan rá hay chữa cái chuồng gà, cạp lại tấm liếp. Từ ngày tản cư lên đây, suốt ngày mấy bố con nhong nhóng ngồi ăn, tối đến lại nghe những tiếng rì rầm tính toán ấy, ruột gan ông cứ nóng lên như lửa đốt. Ông phải đi chơi cho khuây khỏa. Lần nào cũng như lần nào, cứ vừa nhô đầu qua cái mái lá bên gian bác Thứ là ông lão hỏi ngay: “Thế nào, hôm nay có gì không bác?”...
+Có được tờ phụ san tái hiện những khoảnh khắc vàng của lịch sử trong không khí cả nước chào mừng 50 năm thống nhất đất nước, với nhiều độc giả Bạc Liêu, đó là hạnh phúc. Hạnh phúc của những công dân yêu nước, biết trân trọng những giá trị lịch sử của người đi trước!
+Và đó cũng là mục tiêu của Báo Nhân Dân - tờ báo được xem là anh cả của nền báo chí cách mạng Việt Nam - khi mở đợt thông tin đặc biệt nhân kỷ niệm 50 năm Ngày Giải phóng miền Nam, thống nhất đất nước vừa qua. Những phần việc thiết thực đã “phát huy vai trò của báo chí trong nhiệm vụ góp phần tuyên truyền, giáo dục truyền thống yêu nước, tinh thần đại đoàn kết dân tộc của mọi thế hệ người Việt Nam, góp phần tạo động lực mạnh mẽ để đất nước ta bước vào kỷ nguyên mới - kỷ nguyên phát triển phồn vinh, thịnh vượng” là ghi nhận của Phó Chủ tịch nước - Võ Thị Ánh Xuân.
+Một trong những phần việc ấy là Báo Nhân Dân đã in và phát hành miễn phí hàng trăm ngàn bản phụ san đặc biệt này đến độc giả cả nước. Đó là những tư liệu đặc biệt về Chiến dịch Hồ Chí Minh được thiết kế và in ấn trên khổ giấy Báo Nhân Dân, gồm 8 trang A3. “Cuốn” độc giả ở chỗ, phụ san tích hợp mã QR để người xem dễ dàng truy cập và theo dõi nhiều video tư liệu trên các nền tảng mạng xã hội.
+Đổi mới cách thức tuyên truyền để hướng đến những đối tượng độc giả thời công nghệ số là nhiệm vụ mới và thường trực mà báo chí hiện đại phải nghĩ đến. Những câu chuyện lịch sử được học từ ghế nhà trường đã quá quen thuộc, nên rất cần sự trải nghiệm mới mẻ hơn từ báo chí. Phải nhìn nhận rằng, báo chí truyền thống đầy ắp những tuyến bài đặc sắc, nhưng đôi khi sẽ khó hòa nhập với thị hiếu giới trẻ thời công nghệ số. Vì vậy, rất cần có những hình thức phù hợp để báo chí xây dựng hệ giá trị về lòng yêu nước, tự hào dân tộc - một nhiệm vụ quan trọng để báo chí góp phần “xây dựng, phát triển văn hóa, con người đáp ứng yêu cầu phát triển bền vững của đất nước” trong bối cảnh mới.
 '''
 
 # Đọc nội dung từ file
-# from docx import Document
+from docx import Document
 
-# def read_docx(file_path):
-#     doc = Document(file_path)
-#     full_text = []
-#     for paragraph in doc.paragraphs:
-#         full_text.append(paragraph.text)
-#     return '\n'.join(full_text)\
+def read_docx(file_path):
+    doc = Document(file_path)
+    full_text = []
+    for paragraph in doc.paragraphs:
+        full_text.append(paragraph.text)
+    return '\n'.join(full_text)
     
-# content = read_docx(r"D:\gitab\TT3601_NguyenThiNgocCham_BaiChinhLuan.docx")
 
 #Bước 1: Tiền xử lý văn bản
-contents_parsed = content.lower() #Biến đổi hết thành chữ thường
-contents_parsed = contents_parsed.replace('\n', '. ') #Đổi các ký tự xuống dòng thành chấm câu
-contents_parsed = contents_parsed.strip() #Loại bỏ đi các khoảng trắng thừa
+contents_parsed = content.lower() 
+contents_parsed = contents_parsed.replace('\n', '. ') 
+contents_parsed = contents_parsed.strip() 
 #In ra nội dung sau khi tiền xử lý
 # print("Nội dung sau khi tiền xử lý:\n",contents_parsed) 
 
 
 #Bước 2: Tách câu trong văn bản
 import nltk
-nltk.download('punkt_tab')
+try:
+    nltk.data.find('tokenizers/punkt')
+except LookupError:
+    nltk.download('punkt')
 sentences = nltk.sent_tokenize(contents_parsed)
 #In ra danh sách các câu đã tách
 # print("Danh sách câu:\n",sentences) 
@@ -40,7 +45,8 @@ sentences = nltk.sent_tokenize(contents_parsed)
 #Bước 3: Tách từ trong câu và tính toán vector cho từng câu
 from gensim.models import KeyedVectors
 w2v = KeyedVectors.load_word2vec_format(r"D:\gitab\vi_txt\vi.vec", binary=False)
-vocab = w2v.key_to_index  # Danh sách các từ trong từ điển
+vocab = w2v.key_to_index
+
 from pyvi import ViTokenizer
 
 import numpy as np
@@ -48,16 +54,16 @@ X = []
 for sentence in sentences:
     sentence_tokenized = ViTokenizer.tokenize(sentence)
     words = sentence_tokenized.split(" ")
-    sentence_vec = np.zeros((100))  # 100 là kích thước vector, thay bằng kích thước thực tế của bạn
+    sentence_vec = np.zeros((100))
     for word in words:
         if word in vocab:
-            sentence_vec += w2v[word]  # Truy cập vector từ trực tiếp bằng w2v[word]
+            sentence_vec += w2v[word]
     X.append(sentence_vec)
 
 
 #Bước 4: Phân cụm câu bằng KMeans
 from sklearn.cluster import KMeans
-n_clusters = 5 #Sô lượng cụm (có thể thay đổi)
+n_clusters = 3
 kmeans = KMeans(n_clusters=n_clusters)
 kmeans = kmeans.fit(X)
 
@@ -67,7 +73,6 @@ print("Label vector:", kmeans.labels_)
 
 #Bước 5: Tìm câu đại diện cho từng cụm
 from sklearn.metrics import pairwise_distances_argmin_min
-
 avg = []
 for j in range(n_clusters):
     idx = np.where(kmeans.labels_ == j)[0]
@@ -79,4 +84,3 @@ summary = ' '.join([sentences[closest[idx]] for idx in ordering])
 
 #Bước 6: In ra kết quả
 print("\nTóm Tắt:\n",summary)
-
